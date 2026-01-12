@@ -724,6 +724,7 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 
 				$oReturn->assign('tran_sucu', 'value',		$tran_sucu);
 				$oReturn->script("selectItemByValue(`tran_sucu`,`$tran_sucu`);");
+				$oReturn->script("setTimeout(function(){selectItemByValue('tran_sucu','$tran_sucu');}, 0);");
 
 				$oReturn->assign('defi_fact_defi', 'value',	$defi_fact_defi);
 				$oReturn->assign('defi_num_det', 'value',	$defi_num_det);
