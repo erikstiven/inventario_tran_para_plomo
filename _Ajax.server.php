@@ -505,7 +505,7 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 								<tr>
 									<td>
 											<div class="row" style="margin: 0;">
-												<div class="col-md-4" style="padding-left: 0; padding-right: 10px;">
+												<div class="col-md-3" style="padding-left: 0; padding-right: 10px;">
 													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
 														<tr>
 															<td colspan="2" align="center">* L. de Precios</td>
@@ -524,43 +524,35 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 														</tr>													
 													</table>
 												</div>
-												<div class="col-md-4" style="padding-left: 0; padding-right: 10px;">
-													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-														<tr>
-															<td colspan="2" align="center">* Retencion</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_tip_comp') . '</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_trtc') . '</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_cod_retiva') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_retiva') . '</td>
-														</tr>
-													</table>
+												<div class="col-md-5" style="padding-left: 0; padding-right: 10px;">
+													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0;">
+														<div class="text-center" style="padding: 6px 0;">* Retencion</div>
+														<div class="form-group" style="margin: 0 0 8px;">
+															' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '
+															' . $ifu->ObjetoHtml('defi_tip_comp') . '
+														</div>
+														<div class="form-group" style="margin: 0 0 8px;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '
+															' . $ifu->ObjetoHtml('defi_cod_trtc') . '
+														</div>
+														<div class="form-group" style="margin: 0;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_retiva') . '
+															' . $ifu->ObjetoHtml('defi_cod_retiva') . '
+														</div>
+													</div>
 												</div>
 												<div class="col-md-4" style="padding-left: 0; padding-right: 0;">
-													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-														<colgroup>
-															<col style="width: 35%;">
-															<col style="width: 65%;">
-														</colgroup>
-														<tr>
-															<td colspan="2" align="center">* Tipo Documento</td>
-														</tr>
-														<tr>
-															<td style="white-space: nowrap;">' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_tidu') . '</td>
-														</tr>
-														<tr>
-															<td style="white-space: nowrap;">' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_libro') . '</td>
-														</tr>
-													</table>
+													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0;">
+														<div class="text-center" style="padding: 6px 0;">* Tipo Documento</div>
+														<div class="form-group" style="margin: 0 0 8px;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '
+															' . $ifu->ObjetoHtml('defi_cod_tidu') . '
+														</div>
+														<div class="form-group" style="margin: 0;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '
+															' . $ifu->ObjetoHtml('defi_cod_libro') . '
+														</div>
+													</div>
 												</div>
 											</div>
 									</td>
