@@ -734,6 +734,7 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->script("selectItemByValue(`defi_cod_cuen`,`$defi_cod_cuen`);");
 
 				$oReturn->assign('defi_for_defi', 'value',	$defi_for_defi);
+				$oReturn->script("selectItemByValue(`defi_for_defi`,`$defi_for_defi`);");
 				$oReturn->assign('defi_can_seri', 'value',	$defi_can_seri);
 
 				$oReturn->assign('defi_tip_comp', 'value',	$defi_tip_comp);
