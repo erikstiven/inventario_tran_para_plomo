@@ -543,15 +543,19 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 									</td>';
 		$sHtml .=		   '<td>
 											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
+												<colgroup>
+													<col style="width: 35%;">
+													<col style="width: 65%;">
+												</colgroup>
 												<tr>
 													<td colspan="2" align="center">* Tipo Documento</td>
 												</tr>
 												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '</td>
+													<td style="white-space: nowrap;">' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '</td>
 													<td>' . $ifu->ObjetoHtml('defi_cod_tidu') . '</td>
 												</tr>
 												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '</td>
+													<td style="white-space: nowrap;">' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '</td>
 													<td>' . $ifu->ObjetoHtml('defi_cod_libro') . '</td>
 												</tr>
 											</table>
