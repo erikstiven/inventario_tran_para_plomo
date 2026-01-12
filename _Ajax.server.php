@@ -739,9 +739,14 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->assign('defi_tip_comp', 'value',	$defi_tip_comp);
 				$oReturn->assign('defi_cod_trtc', 'value',	$defi_cod_trtc);
 				$oReturn->assign('defi_cod_retiva', 'value',	$defi_cod_retiva);
+				$oReturn->script("selectItemByValue(`defi_tip_comp`,`$defi_tip_comp`);");
+				$oReturn->script("selectItemByValue(`defi_cod_trtc`,`$defi_cod_trtc`);");
+				$oReturn->script("selectItemByValue(`defi_cod_retiva`,`$defi_cod_retiva`);");
 
 				$oReturn->assign('defi_cod_tidu', 'value',	$defi_cod_tidu);
 				$oReturn->assign('defi_cod_libro', 'value',	$defi_cod_libro);
+				$oReturn->script("selectItemByValue(`defi_cod_tidu`,`$defi_cod_tidu`);");
+				$oReturn->script("selectItemByValue(`defi_cod_libro`,`$defi_cod_libro`);");
 				$oReturn->assign('defi_cod_crtr', 'value',	$defi_cod_crtr);
 				$oReturn->script("selectItemByValue(`defi_cod_crtr`,`$defi_cod_crtr`);");
 
