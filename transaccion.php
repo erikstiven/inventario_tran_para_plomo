@@ -526,14 +526,18 @@
                 return;
             }
             var normalized = value == null ? '' : ('' + value).trim();
+            var normalizedNumber = normalized !== '' && !isNaN(Number(normalized)) ? Number(normalized) : null;
+            var matchedValue = null;
             for(var i=0; i < elmnt.options.length; i++){
                 var optionValue = ('' + elmnt.options[i].value).trim();
-                if(optionValue == normalized) {
+                var optionNumber = optionValue !== '' && !isNaN(Number(optionValue)) ? Number(optionValue) : null;
+                if(optionValue === normalized || (normalizedNumber !== null && optionNumber !== null && optionNumber === normalizedNumber)) {
                     elmnt.selectedIndex = i;
+                    matchedValue = optionValue;
                     break;
                 }
             }
-            $('#'+select_id).val(normalized);
+            $('#'+select_id).val(matchedValue != null ? matchedValue : normalized);
             $('#'+select_id).trigger('change');
         }
 
