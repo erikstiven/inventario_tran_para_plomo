@@ -503,64 +503,58 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3" style="padding-right: 0;">
-										<div style="display: flex; gap: 10px; width: 100%; padding-right: 0;">
-											<div style="flex: 0 0 25%; min-width: 0;">
-												<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-													<tr>
-														<td colspan="2" align="center">* L. de Precios</td>
-													</tr>
-													<tr>
-														<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prec') . '</td>
-														<td>' . $ifu->ObjetoHtml('defi_lis_prec') . '</td>
-													</tr>	
-													<tr>
-														<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prep') . '</td>
-														<td>' . $ifu->ObjetoHtml('defi_lis_prep') . '</td>
-													</tr>	
-													<tr>
-														<td>' . $ifu->ObjetoHtmlLBL('defi_des_prec') . '</td>
-														<td>' . $ifu->ObjetoHtml('defi_des_prec') . '</td>
-													</tr>													
-												</table>
-											</div>
-											<div style="flex: 1; display: flex; gap: 10px; min-width: 0;">
-												<div style="flex: 1; min-width: 0;">
-													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-														<tr>
-															<td colspan="2" align="center">* Retencion</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_tip_comp') . '</td>
-														</tr>';
-		$sHtml .= '									<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_trtc') . '</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_cod_retiva') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_retiva') . '</td>
-														</tr>
-													</table>
-												</div>
-												<div style="flex: 1; min-width: 0;">
-													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-														<tr>
-															<td colspan="2" align="center">* Tipo Documento</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_tidu') . '</td>
-														</tr>
-														<tr>
-															<td>' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '</td>
-															<td>' . $ifu->ObjetoHtml('defi_cod_libro') . '</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</div>
+									<td style="width: 25%;">
+											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
+												<tr>
+													<td colspan="2" align="center">* L. de Precios</td>
+												</tr>
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prec') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_lis_prec') . '</td>
+												</tr>	
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prep') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_lis_prep') . '</td>
+												</tr>	
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_des_prec') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_des_prec') . '</td>
+												</tr>													
+											</table>
+									</td>';
+		$sHtml .= 					'<td style="width: 37.5%;">
+											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
+												<tr>
+													<td colspan="2" align="center">* Retencion</td>
+												</tr>
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_tip_comp') . '</td>
+												</tr>';
+		$sHtml .= '						<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_cod_trtc') . '</td>
+												</tr>
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_retiva') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_cod_retiva') . '</td>
+												</tr>
+											</table>
+									</td>';
+		$sHtml .=		   '<td style="width: 37.5%; padding-right: 0;">
+											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
+												<tr>
+													<td colspan="2" align="center">* Tipo Documento</td>
+												</tr>
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_cod_tidu') . '</td>
+												</tr>
+												<tr>
+													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '</td>
+													<td>' . $ifu->ObjetoHtml('defi_cod_libro') . '</td>
+												</tr>
+											</table>
 									</td>
 								</tr>
 							</table>
