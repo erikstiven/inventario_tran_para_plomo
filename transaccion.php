@@ -525,19 +525,15 @@
             if (!elmnt) {
                 return;
             }
-            var found = false;
+            var normalized = value == null ? '' : ('' + value).trim();
             for(var i=0; i < elmnt.options.length; i++){
-                if(elmnt.options[i].value === value) {
+                var optionValue = ('' + elmnt.options[i].value).trim();
+                if(optionValue == normalized) {
                     elmnt.selectedIndex = i;
-                    found = true;
                     break;
                 }
             }
-            if (!found && value != null && value !== '') {
-                var option = new Option(value, value, true, true);
-                elmnt.add(option);
-            }
-            $('#'+select_id).val(value == null ? '' : ""+value);
+            $('#'+select_id).val(normalized);
             $('#'+select_id).trigger('change');
         }
 
