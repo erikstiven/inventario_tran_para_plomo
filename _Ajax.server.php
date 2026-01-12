@@ -504,8 +504,8 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 								</tr>
 								<tr>
 									<td>
-											<div class="row" style="margin: 0;">
-												<div class="col-md-3" style="padding-left: 0; padding-right: 10px;">
+											<div class="row" style="margin: 0; column-gap: 10px;">
+												<div class="col-md-3" style="padding-left: 0; padding-right: 15px;">
 													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
 														<tr>
 															<td colspan="2" align="center">* L. de Precios</td>
@@ -524,14 +524,14 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 														</tr>													
 													</table>
 												</div>
-												<div class="col-md-5" style="padding-left: 0; padding-right: 10px;">
-													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0;">
+												<div class="col-md-5" style="padding-left: 0; padding-right: 15px;">
+													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0; padding: 8px 10px;">
 														<div class="text-center" style="padding: 6px 0;">* Retencion</div>
-														<div class="form-group" style="margin: 0 0 8px;">
+														<div class="form-group" style="margin: 0 0 12px;">
 															' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '
 															' . $ifu->ObjetoHtml('defi_tip_comp') . '
 														</div>
-														<div class="form-group" style="margin: 0 0 8px;">
+														<div class="form-group" style="margin: 0 0 12px;">
 															' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '
 															' . $ifu->ObjetoHtml('defi_cod_trtc') . '
 														</div>
@@ -542,9 +542,9 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 													</div>
 												</div>
 												<div class="col-md-4" style="padding-left: 0; padding-right: 0;">
-													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0;">
+													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0; padding: 8px 10px;">
 														<div class="text-center" style="padding: 6px 0;">* Tipo Documento</div>
-														<div class="form-group" style="margin: 0 0 8px;">
+														<div class="form-group" style="margin: 0 0 12px;">
 															' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '
 															' . $ifu->ObjetoHtml('defi_cod_tidu') . '
 														</div>
