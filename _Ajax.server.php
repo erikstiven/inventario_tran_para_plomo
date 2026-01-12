@@ -504,57 +504,57 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 								</tr>
 								<tr>
 									<td>
-											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-												<tr>
-													<td colspan="2" align="center">* L. de Precios</td>
-												</tr>
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prec') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_lis_prec') . '</td>
-												</tr>	
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prep') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_lis_prep') . '</td>
-												</tr>	
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_des_prec') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_des_prec') . '</td>
-												</tr>													
-											</table>
-									</td>';
-		$sHtml .= 					'<td>
-											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-												<tr>
-													<td colspan="2" align="center">* Retencion</td>
-												</tr>
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_tip_comp') . '</td>
-												</tr>';
-		$sHtml .= '						<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_cod_trtc') . '</td>
-												</tr>
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_retiva') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_cod_retiva') . '</td>
-												</tr>
-											</table>
-									</td>';
-		$sHtml .=		   '<td>
-											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
-												<tr>
-													<td colspan="2" align="center">* Tipo Documento</td>
-												</tr>
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_cod_tidu') . '</td>
-												</tr>
-												<tr>
-													<td>' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '</td>
-													<td>' . $ifu->ObjetoHtml('defi_cod_libro') . '</td>
-												</tr>
-											</table>
+											<div class="row" style="margin: 0;">
+												<div class="col-md-4" style="padding-left: 0; padding-right: 10px;">
+													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
+														<tr>
+															<td colspan="2" align="center">* L. de Precios</td>
+														</tr>
+														<tr>
+															<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prec') . '</td>
+															<td>' . $ifu->ObjetoHtml('defi_lis_prec') . '</td>
+														</tr>	
+														<tr>
+															<td>' . $ifu->ObjetoHtmlLBL('defi_lis_prep') . '</td>
+															<td>' . $ifu->ObjetoHtml('defi_lis_prep') . '</td>
+														</tr>	
+														<tr>
+															<td>' . $ifu->ObjetoHtmlLBL('defi_des_prec') . '</td>
+															<td>' . $ifu->ObjetoHtml('defi_des_prec') . '</td>
+														</tr>													
+													</table>
+												</div>
+												<div class="col-md-4" style="padding-left: 0; padding-right: 10px;">
+													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0; padding: 8px 10px;">
+														<div class="text-center" style="padding: 6px 0;">* Retencion</div>
+														<div class="form-group" style="margin: 0 0 12px;">
+															' . $ifu->ObjetoHtmlLBL('defi_tip_comp') . '
+															' . $ifu->ObjetoHtml('defi_tip_comp') . '
+														</div>
+														<div class="form-group" style="margin: 0 0 12px;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_trtc') . '
+															' . $ifu->ObjetoHtml('defi_cod_trtc') . '
+														</div>
+														<div class="form-group" style="margin: 0;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_retiva') . '
+															' . $ifu->ObjetoHtml('defi_cod_retiva') . '
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4" style="padding-left: 0; padding-right: 0;">
+													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0; padding: 8px 10px;">
+														<div class="text-center" style="padding: 6px 0;">* Tipo Documento</div>
+														<div class="form-group" style="margin: 0 0 12px;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_tidu') . '
+															' . $ifu->ObjetoHtml('defi_cod_tidu') . '
+														</div>
+														<div class="form-group" style="margin: 0;">
+															' . $ifu->ObjetoHtmlLBL('defi_cod_libro') . '
+															' . $ifu->ObjetoHtml('defi_cod_libro') . '
+														</div>
+													</div>
+												</div>
+											</div>
 									</td>
 								</tr>
 							</table>
@@ -721,7 +721,6 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->assign('tran_cod', 'value', 		$tran_cod);
 				$oReturn->assign('tran_nom', 'value', 		$tran_nom);
 				$oReturn->assign('tran_secu', 'value',		$tran_secu);
-
 				$oReturn->assign('tran_sucu', 'value',		$tran_sucu);
 				$oReturn->script("selectItemByValue(`tran_sucu`,`$tran_sucu`);");
 
@@ -743,235 +742,57 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->assign('defi_cod_tidu', 'value',	$defi_cod_tidu);
 				$oReturn->assign('defi_cod_libro', 'value',	$defi_cod_libro);
 				$oReturn->assign('defi_cod_crtr', 'value',	$defi_cod_crtr);
+				$oReturn->script("selectItemByValue(`defi_for_defi`,`$defi_for_defi`);");
+				$oReturn->script("selectItemByValue(`defi_tip_comp`,`$defi_tip_comp`);");
+				$oReturn->script("selectItemByValue(`defi_cod_trtc`,`$defi_cod_trtc`);");
+				$oReturn->script("selectItemByValue(`defi_cod_retiva`,`$defi_cod_retiva`);");
+				$oReturn->script("selectItemByValue(`defi_cod_tidu`,`$defi_cod_tidu`);");
+				$oReturn->script("selectItemByValue(`defi_cod_libro`,`$defi_cod_libro`);");
 				$oReturn->script("selectItemByValue(`defi_cod_crtr`,`$defi_cod_crtr`);");
 
+				$oReturn->script("setRadioByValue(`defi_tip_defi`,`$defi_tip_defi`);");
+				$oReturn->script("setRadioByValue(`defi_iva_defi`,`$defi_iva_defi`);");
+				$oReturn->script("setRadioByValue(`defi_pro_defi`,`$defi_pro_defi`);");
+				$oReturn->script("setRadioByValue(`defi_cos_defi`,`$defi_cos_defi`);");
+				$oReturn->script("setRadioByValue(`defi_cost_defi`,`$defi_cost_defi`);");
+				$oReturn->script("setRadioByValue(`defi_ice_defi`,`$defi_ice_defi`);");
 
-
-
-				$oReturn->assign('defi' . $defi_tip_defi,				'checked', 	true);
-				$oReturn->assign('defi_iva_defi' . $defi_iva_defi,	'checked',	true);
-				$oReturn->assign('defi_pro_defi' . $defi_pro_defi,	'checked',	true);
-				$oReturn->assign('defi_cos_defi' . $defi_cos_defi,	'checked',	true);
-				$oReturn->assign('defi_cost_defi' . $defi_cost_defi,	'checked',	true);
-				$oReturn->assign('defi_ice_defi' . $defi_ice_defi,	'checked',	true);
-
-				if ($defi_mos_bode == 'S') {
-					$oReturn->assign('defi_mos_bode', 'checked', true);
-				} else {
-					$oReturn->assign('defi_mos_bode', 'checked', false);
-				}
-
-				if ($defi_otr_defi == '0') {
-					$oReturn->assign('defi_otr_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_otr_defi', 'checked', false);
-				}
-
-
-				if ($defi_prec_vent == '0') {
-					$oReturn->assign('defi_prec_vent', 'checked', true);
-				} else {
-					$oReturn->assign('defi_prec_vent', 'checked', false);
-				}
-
-
-				if ($defi_ret_defi == '0') {
-					$oReturn->assign('defi_ret_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ret_defi', 'checked', false);
-				}
-
-				if ($defi_prd_defi == 'S') {
-					$oReturn->assign('defi_prd_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_prd_defi', 'checked', false);
-				}
-
-				if ($defi_nov_mos == 'S') {
-					$oReturn->assign('defi_nov_mos', 'checked', true);
-				} else {
-					$oReturn->assign('defi_nov_mos', 'checked', false);
-				}
-
-				if ($defi_can_defi == '0') {
-					$oReturn->assign('defi_can_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_can_defi', 'checked', false);
-				}
-
-				if ($defi_pro_prov == '1') {
-					$oReturn->assign('defi_pro_prov', 'checked', true);
-				} else {
-					$oReturn->assign('defi_pro_prov', 'checked', false);
-				}
-
-				if ($defi_lot_clpv == 'S') {
-					$oReturn->assign('defi_lot_clpv', 'checked', true);
-				} else {
-					$oReturn->assign('defi_lot_clpv', 'checked', false);
-				}
-
-				if ($defi_ctc_defi == '0') {
-					$oReturn->assign('defi_ctc_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ctc_defi', 'checked', false);
-				}
-
-				if ($defi_det_dmov == 'S') {
-					$oReturn->assign('defi_det_dmov', 'checked', true);
-				} else {
-					$oReturn->assign('defi_det_dmov', 'checked', false);
-				}
-
-				if ($defi_iva_incl == 'S') {
-					$oReturn->assign('defi_iva_incl', 'checked', true);
-				} else {
-					$oReturn->assign('defi_iva_incl', 'checked', false);
-				}
-
-				if ($defi_prc_defi == '0') {
-					$oReturn->assign('defi_prc_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_prc_defi', 'checked', false);
-				}
-
-				if ($defi_lot_defi == '0') {
-					$oReturn->assign('defi_lot_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_lot_defi', 'checked', false);
-				}
-
-				if ($defi_cco_defi == '0') {
-					$oReturn->assign('defi_cco_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_cco_defi', 'checked', false);
-				}
-
-				if ($defi_ord_iniv == 'S') {
-					$oReturn->assign('defi_ord_iniv', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ord_iniv', 'checked', false);
-				}
-
-				if ($defi_mul_empr == '0') {
-					$oReturn->assign('defi_mul_empr', 'checked', true);
-				} else {
-					$oReturn->assign('defi_mul_empr', 'checked', false);
-				}
-
-				if ($defi_ped_defi == 'S') {
-					$oReturn->assign('defi_ped_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ped_defi', 'checked', false);
-				}
-
-				if ($defi_sno_seri == '1') {
-					$oReturn->assign('defi_sno_seri', 'checked', true);
-				} else {
-					$oReturn->assign('defi_sno_seri', 'checked', false);
-				}
-
-				if ($defi_eval_defi == 'S') {
-					$oReturn->assign('defi_eval_defi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_eval_defi', 'checked', false);
-				}
-
-				if ($defi_ord_trab == '0') {
-					$oReturn->assign('defi_ord_trab', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ord_trab', 'checked', false);
-				}
-
-				if ($defi_ant_movi == '1') {
-					$oReturn->assign('defi_ant_movi', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ant_movi', 'checked', false);
-				}
-
-				if ($defi_cie_anti == '1') {
-					$oReturn->assign('defi_cie_anti', 'checked', true);
-				} else {
-					$oReturn->assign('defi_cie_anti', 'checked', false);
-				}
-
-				if ($defi_lis_prec == '0') {
-					$oReturn->assign('defi_lis_prec', 'checked', true);
-				} else {
-					$oReturn->assign('defi_lis_prec', 'checked', false);
-				}
-
-				if ($defi_lis_prep == '0') {
-					$oReturn->assign('defi_lis_prep', 'checked', true);
-				} else {
-					$oReturn->assign('defi_lis_prep', 'checked', false);
-				}
-
-				if ($defi_des_prec == '0') {
-					$oReturn->assign('defi_des_prec', 'checked', true);
-				} else {
-					$oReturn->assign('defi_des_prec', 'checked', false);
-				}
-
-				if ($defi_tip_cons == 'S') {
-					$oReturn->assign('defi_tip_cons', 'checked', true);
-				} else {
-					$oReturn->assign('defi_tip_cons', 'checked', false);
-				}
-
-				if ($defi_tip_rese == 'S') {
-					$oReturn->assign('defi_tip_rese', 'checked', true);
-				} else {
-					$oReturn->assign('defi_tip_rese', 'checked', false);
-				}
-
-				if ($defi_tom_pre == 'S') {
-					$oReturn->assign('defi_tom_pre', 'checked', true);
-				} else {
-					$oReturn->assign('defi_tom_pre', 'checked', false);
-				}
-
-				if ($defi_prod_rec == 'S') {
-					$oReturn->assign('defi_prod_rec', 'checked', true);
-				} else {
-					$oReturn->assign('defi_prod_rec', 'checked', false);
-				}
-
-				if ($defi_barr_si == 'S') {
-					$oReturn->assign('defi_barr_si', 'checked', true);
-				} else {
-					$oReturn->assign('defi_barr_si', 'checked', false);
-				}
-
-				if ($defi_tip_roma == 'S') {
-					$oReturn->assign('defi_tip_roma', 'checked', true);
-				} else {
-					$oReturn->assign('defi_tip_roma', 'checked', false);
-				}
-
-				if ($defi_mat_prim == 'S') {
-					$oReturn->assign('defi_mat_prim', 'checked', true);
-				} else {
-					$oReturn->assign('defi_mat_prim', 'checked', false);
-				}
-
-				if ($defi_ing_xml == 'S') {
-					$oReturn->assign('defi_ing_xml', 'checked', true);
-				} else {
-					$oReturn->assign('defi_ing_xml', 'checked', false);
-				}
-
-				if ($defi_sin_fact == 'S') {
-					$oReturn->assign('defi_sin_fact', 'checked', true);
-				} else {
-					$oReturn->assign('defi_sin_fact', 'checked', false);
-				}
-
-				if ($defi_mod_can == 'S') {
-					$oReturn->assign('defi_mod_can', 'checked', true);
-				} else {
-					$oReturn->assign('defi_mod_can', 'checked', false);
-				}
+				$oReturn->script("setCheckboxByValue(`defi_mos_bode`,`$defi_mos_bode`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_otr_defi`,`$defi_otr_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_prec_vent`,`$defi_prec_vent`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_ret_defi`,`$defi_ret_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_prd_defi`,`$defi_prd_defi`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_nov_mos`,`$defi_nov_mos`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_can_defi`,`$defi_can_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_pro_prov`,`$defi_pro_prov`, ['1']);");
+				$oReturn->script("setCheckboxByValue(`defi_lot_clpv`,`$defi_lot_clpv`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_ctc_defi`,`$defi_ctc_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_det_dmov`,`$defi_det_dmov`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_iva_incl`,`$defi_iva_incl`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_prc_defi`,`$defi_prc_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_lot_defi`,`$defi_lot_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_cco_defi`,`$defi_cco_defi`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_ord_iniv`,`$defi_ord_iniv`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_mul_empr`,`$defi_mul_empr`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_ped_defi`,`$defi_ped_defi`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_sno_seri`,`$defi_sno_seri`, ['1']);");
+				$oReturn->script("setCheckboxByValue(`defi_eval_defi`,`$defi_eval_defi`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_ord_trab`,`$defi_ord_trab`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_ant_movi`,`$defi_ant_movi`, ['1']);");
+				$oReturn->script("setCheckboxByValue(`defi_cie_anti`,`$defi_cie_anti`, ['1']);");
+				$oReturn->script("setCheckboxByValue(`defi_lis_prec`,`$defi_lis_prec`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_lis_prep`,`$defi_lis_prep`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_des_prec`,`$defi_des_prec`, ['0']);");
+				$oReturn->script("setCheckboxByValue(`defi_tip_cons`,`$defi_tip_cons`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_tip_rese`,`$defi_tip_rese`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_tom_pre`,`$defi_tom_pre`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_prod_rec`,`$defi_prod_rec`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_barr_si`,`$defi_barr_si`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_tip_roma`,`$defi_tip_roma`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_mat_prim`,`$defi_mat_prim`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_ing_xml`,`$defi_ing_xml`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_sin_fact`,`$defi_sin_fact`, ['S']);");
+				$oReturn->script("setCheckboxByValue(`defi_mod_can`,`$defi_mod_can`, ['S']);");
 			}
 		}
 		$oIfx->Free();
