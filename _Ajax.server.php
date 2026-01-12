@@ -504,8 +504,8 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 								</tr>
 								<tr>
 									<td>
-											<div class="row" style="margin: 0; column-gap: 10px;">
-												<div class="col-md-3" style="padding-left: 0; padding-right: 15px;">
+											<div class="row" style="margin: 0;">
+												<div class="col-md-4" style="padding-left: 0; padding-right: 10px;">
 													<table class="table table-striped table-condensed" align="center" style="width: 100%;">
 														<tr>
 															<td colspan="2" align="center">* L. de Precios</td>
@@ -524,7 +524,7 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 														</tr>													
 													</table>
 												</div>
-												<div class="col-md-5" style="padding-left: 0; padding-right: 15px;">
+												<div class="col-md-4" style="padding-left: 0; padding-right: 10px;">
 													<div class="table table-striped table-condensed" style="width: 100%; margin-bottom: 0; padding: 8px 10px;">
 														<div class="text-center" style="padding: 6px 0;">* Retencion</div>
 														<div class="form-group" style="margin: 0 0 12px;">
