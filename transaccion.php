@@ -522,13 +522,17 @@
     <script>
         function selectItemByValue(select_id, value){
             var elmnt =  document.getElementById(select_id);
+            if (!elmnt) {
+                return;
+            }
+            var matchValue = value === null || value === undefined ? '' : String(value).trim();
             for(var i=0; i < elmnt.options.length; i++){
-                if(elmnt.options[i].value === value) {
+                if(elmnt.options[i].value.trim() === matchValue) {
                     elmnt.selectedIndex = i;
                     break;
                 }
             }
-            $('#'+select_id).val(""+value); // Select the option with a value of '21'
+            $('#'+select_id).val(matchValue);
             $('#'+select_id).trigger('change'); 
         }
         
