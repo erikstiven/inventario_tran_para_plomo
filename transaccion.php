@@ -526,10 +526,20 @@
                 return;
             }
             var matchValue = value === null || value === undefined ? '' : String(value).trim();
+            var matched = false;
             for(var i=0; i < elmnt.options.length; i++){
                 if(elmnt.options[i].value.trim() === matchValue) {
                     elmnt.selectedIndex = i;
+                    matched = true;
                     break;
+                }
+            }
+            if (!matched && matchValue !== '') {
+                for(var j=0; j < elmnt.options.length; j++){
+                    if(elmnt.options[j].text.trim() === matchValue) {
+                        elmnt.selectedIndex = j;
+                        break;
+                    }
                 }
             }
             $('#'+select_id).val(matchValue);
