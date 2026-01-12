@@ -525,11 +525,17 @@
             if (!elmnt) {
                 return;
             }
+            var found = false;
             for(var i=0; i < elmnt.options.length; i++){
                 if(elmnt.options[i].value === value) {
                     elmnt.selectedIndex = i;
+                    found = true;
                     break;
                 }
+            }
+            if (!found && value != null && value !== '') {
+                var option = new Option(value, value, true, true);
+                elmnt.add(option);
             }
             $('#'+select_id).val(value == null ? '' : ""+value);
             $('#'+select_id).trigger('change');
