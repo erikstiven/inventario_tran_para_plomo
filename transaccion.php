@@ -527,22 +527,42 @@
             }
             var matchValue = value === null || value === undefined ? '' : String(value).trim();
             var matched = false;
+            var selectedValue = matchValue;
             for(var i=0; i < elmnt.options.length; i++){
-                if(elmnt.options[i].value.trim() === matchValue) {
+                var optionValue = elmnt.options[i].value.trim();
+                if(optionValue === matchValue) {
                     elmnt.selectedIndex = i;
                     matched = true;
+                    selectedValue = optionValue;
                     break;
                 }
             }
             if (!matched && matchValue !== '') {
                 for(var j=0; j < elmnt.options.length; j++){
-                    if(elmnt.options[j].text.trim() === matchValue) {
+                    var optionText = elmnt.options[j].text.trim();
+                    if(optionText === matchValue || optionText.toLowerCase().indexOf(matchValue.toLowerCase()) !== -1) {
                         elmnt.selectedIndex = j;
+                        selectedValue = elmnt.options[j].value.trim();
+                        matched = true;
                         break;
                     }
                 }
             }
-            $('#'+select_id).val(matchValue);
+            if (!matched && matchValue !== '') {
+                var numericValue = parseInt(matchValue, 10);
+                if (!isNaN(numericValue)) {
+                    for(var k=0; k < elmnt.options.length; k++){
+                        var optionNumeric = parseInt(elmnt.options[k].value, 10);
+                        if(!isNaN(optionNumeric) && optionNumeric === numericValue) {
+                            elmnt.selectedIndex = k;
+                            selectedValue = elmnt.options[k].value.trim();
+                            matched = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            $('#'+select_id).val(selectedValue);
             $('#'+select_id).trigger('change'); 
         }
         
