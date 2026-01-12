@@ -522,17 +522,27 @@
     <script>
         function selectItemByValue(select_id, value){
             var elmnt =  document.getElementById(select_id);
+            if (!elmnt) {
+                return;
+            }
             for(var i=0; i < elmnt.options.length; i++){
                 if(elmnt.options[i].value === value) {
                     elmnt.selectedIndex = i;
                     break;
                 }
             }
-            $('#'+select_id).val(""+value); // Select the option with a value of '21'
-            $('#'+select_id).trigger('change'); 
+            $('#'+select_id).val(value == null ? '' : ""+value);
+            $('#'+select_id).trigger('change');
         }
-        
-        
+
+        function setRadioByValue(name, value){
+            $('input[name="' + name + '"][value="' + value + '"]').prop('checked', true);
+        }
+
+        function setCheckboxByValue(id, value, trueValues){
+            var values = Array.isArray(trueValues) ? trueValues : ['S', '1', 1, true, 'true'];
+            $('#' + id).prop('checked', values.includes(value));
+        }
     </script>
     <? /*     * ***************************************************************** */ ?>
     <? /* NO MODIFICAR ESTA SECCION */ ?>
