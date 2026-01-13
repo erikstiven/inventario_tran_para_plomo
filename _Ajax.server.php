@@ -503,7 +503,7 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td style="width: 25%;">
 											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
 												<tr>
 													<td colspan="2" align="center">* L. de Precios</td>
@@ -522,7 +522,7 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 												</tr>													
 											</table>
 									</td>';
-		$sHtml .= 					'<td>
+		$sHtml .= 					'<td style="width: 37.5%;">
 											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
 												<tr>
 													<td colspan="2" align="center">* Retencion</td>
@@ -541,7 +541,7 @@ function genera_formulario($sAccion = 'nuevo', $aForm = '')
 												</tr>
 											</table>
 									</td>';
-		$sHtml .=		   '<td>
+		$sHtml .=		   '<td style="width: 37.5%; padding-right: 0;">
 											<table class="table table-striped table-condensed" align="center" style="width: 100%;">
 												<tr>
 													<td colspan="2" align="center">* Tipo Documento</td>
@@ -639,9 +639,12 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 		//lectura sucia
 		//////////////
 
-		$sql = "select  *				
-							from saedefi, saetran where					
-							tran_cod_tran    = defi_cod_tran and					
+		$sql = "select  saedefi.*, saetran.*, saesucu.sucu_cod_sucu as sucu_cod_tran				
+							from saedefi
+							join saetran on tran_cod_tran = defi_cod_tran
+							left join saesucu on sucu_cod_empr = $idempresa
+								and (sucu_cod_sucu::text = tran_cod_sucu::text or sucu_nom_sucu = tran_cod_sucu::text)
+							where					
 							defi_cod_empr    = $idempresa and					
 							defi_cod_modu    = 10	and
 							tran_cod_tran    = '$tran_cod' and
@@ -654,6 +657,7 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$tran_nom  		= $oIfx->f('tran_des_tran');
 				$tran_secu 		= $oIfx->f('defi_trs_defi');
 				$tran_sucu 		= $oIfx->f('tran_cod_sucu');
+				$tran_sucu_sel  = $oIfx->f('sucu_cod_tran') ?: $tran_sucu;
 				$defi_mos_bode 	= $oIfx->f('defi_mos_bode');
 				$defi_fact_defi = $oIfx->f('defi_fact_defi');
 				$defi_cod_tidu	= $oIfx->f('defi_cod_tidu');
@@ -722,8 +726,9 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->assign('tran_nom', 'value', 		$tran_nom);
 				$oReturn->assign('tran_secu', 'value',		$tran_secu);
 
-				$oReturn->assign('tran_sucu', 'value',		$tran_sucu);
-				$oReturn->script("selectItemByValue(`tran_sucu`,`$tran_sucu`);");
+				$oReturn->assign('tran_sucu', 'value',		$tran_sucu_sel);
+				$oReturn->script("selectItemByValue(`tran_sucu`,`$tran_sucu_sel`);");
+				$oReturn->script("setTimeout(function(){selectItemByValue('tran_sucu','$tran_sucu_sel');}, 0);");
 
 				$oReturn->assign('defi_fact_defi', 'value',	$defi_fact_defi);
 				$oReturn->assign('defi_num_det', 'value',	$defi_num_det);
@@ -734,14 +739,20 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->script("selectItemByValue(`defi_cod_cuen`,`$defi_cod_cuen`);");
 
 				$oReturn->assign('defi_for_defi', 'value',	$defi_for_defi);
+				$oReturn->script("selectItemByValue(`defi_for_defi`,`$defi_for_defi`);");
 				$oReturn->assign('defi_can_seri', 'value',	$defi_can_seri);
 
 				$oReturn->assign('defi_tip_comp', 'value',	$defi_tip_comp);
 				$oReturn->assign('defi_cod_trtc', 'value',	$defi_cod_trtc);
 				$oReturn->assign('defi_cod_retiva', 'value',	$defi_cod_retiva);
+				$oReturn->script("selectItemByValue(`defi_tip_comp`,`$defi_tip_comp`);");
+				$oReturn->script("selectItemByValue(`defi_cod_trtc`,`$defi_cod_trtc`);");
+				$oReturn->script("selectItemByValue(`defi_cod_retiva`,`$defi_cod_retiva`);");
 
 				$oReturn->assign('defi_cod_tidu', 'value',	$defi_cod_tidu);
 				$oReturn->assign('defi_cod_libro', 'value',	$defi_cod_libro);
+				$oReturn->script("selectItemByValue(`defi_cod_tidu`,`$defi_cod_tidu`);");
+				$oReturn->script("selectItemByValue(`defi_cod_libro`,`$defi_cod_libro`);");
 				$oReturn->assign('defi_cod_crtr', 'value',	$defi_cod_crtr);
 				$oReturn->script("selectItemByValue(`defi_cod_crtr`,`$defi_cod_crtr`);");
 
