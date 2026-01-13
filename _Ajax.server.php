@@ -632,7 +632,8 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 	$oReturn = new xajaxResponse();
 
 	//variables de session
-	$idempresa = $_SESSION['U_EMPRESA'];
+		$idempresa = $_SESSION['U_EMPRESA'];
+		$idsucursal = $_SESSION['U_SUCURSAL'];
 
 	try {
 
@@ -651,9 +652,11 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 							from saedefi, saetran where					
 							tran_cod_tran    = defi_cod_tran and					
 							defi_cod_empr    = $idempresa and					
+							tran_cod_empr    = $idempresa and
 							defi_cod_modu    = 10	and
 							$tran_cod_cond and
-							$defi_cod_cond
+							$defi_cod_cond and
+							tran_cod_sucu    = $idsucursal
 							order by tran_cod_sucu,1  ";
 		if ($oIfx->Query($sql)) {
 			if ($oIfx->NumFilas() > 0) {
