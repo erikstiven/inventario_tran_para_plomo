@@ -642,7 +642,7 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 		$tran_cod = trim($tran_cod);
 		$tran_cod_sql = addslashes($tran_cod);
 		$tran_cod_cond = $tran_cod !== ''
-			? "tran_cod_tran = '$tran_cod_sql'"
+			? "CAST(tran_cod_tran AS TEXT) = '$tran_cod_sql'"
 			: "1 = 0";
 		$defi_cod_cond = is_numeric($id)
 			? "defi_cod_defi = $id"
