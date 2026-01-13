@@ -639,9 +639,12 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 		//lectura sucia
 		//////////////
 
-		$sql = "select  *				
-							from saedefi, saetran where					
-							tran_cod_tran    = defi_cod_tran and					
+		$sql = "select  saedefi.*, saetran.*, saesucu.sucu_cod_sucu as sucu_cod_tran				
+							from saedefi
+							join saetran on tran_cod_tran = defi_cod_tran
+							left join saesucu on sucu_cod_empr = $idempresa
+								and (sucu_cod_sucu = tran_cod_sucu or sucu_nom_sucu = tran_cod_sucu)
+							where					
 							defi_cod_empr    = $idempresa and					
 							defi_cod_modu    = 10	and
 							tran_cod_tran    = '$tran_cod' and
@@ -654,6 +657,7 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$tran_nom  		= $oIfx->f('tran_des_tran');
 				$tran_secu 		= $oIfx->f('defi_trs_defi');
 				$tran_sucu 		= $oIfx->f('tran_cod_sucu');
+				$tran_sucu_sel  = $oIfx->f('sucu_cod_tran') ?: $tran_sucu;
 				$defi_mos_bode 	= $oIfx->f('defi_mos_bode');
 				$defi_fact_defi = $oIfx->f('defi_fact_defi');
 				$defi_cod_tidu	= $oIfx->f('defi_cod_tidu');
@@ -722,9 +726,9 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 				$oReturn->assign('tran_nom', 'value', 		$tran_nom);
 				$oReturn->assign('tran_secu', 'value',		$tran_secu);
 
-				$oReturn->assign('tran_sucu', 'value',		$tran_sucu);
-				$oReturn->script("selectItemByValue(`tran_sucu`,`$tran_sucu`);");
-				$oReturn->script("setTimeout(function(){selectItemByValue('tran_sucu','$tran_sucu');}, 0);");
+				$oReturn->assign('tran_sucu', 'value',		$tran_sucu_sel);
+				$oReturn->script("selectItemByValue(`tran_sucu`,`$tran_sucu_sel`);");
+				$oReturn->script("setTimeout(function(){selectItemByValue('tran_sucu','$tran_sucu_sel');}, 0);");
 
 				$oReturn->assign('defi_fact_defi', 'value',	$defi_fact_defi);
 				$oReturn->assign('defi_num_det', 'value',	$defi_num_det);
