@@ -643,7 +643,7 @@ function seleccionarTran($aForm = '', $tran_cod, $id = 0)
 							from saedefi
 							join saetran on tran_cod_tran = defi_cod_tran
 							left join saesucu on sucu_cod_empr = $idempresa
-								and (sucu_cod_sucu::text = tran_cod_sucu::text or sucu_nom_sucu = tran_cod_sucu)
+								and (sucu_cod_sucu::text = tran_cod_sucu::text or sucu_nom_sucu = tran_cod_sucu::text)
 							where					
 							defi_cod_empr    = $idempresa and					
 							defi_cod_modu    = 10	and
